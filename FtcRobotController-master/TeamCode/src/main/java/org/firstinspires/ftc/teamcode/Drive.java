@@ -13,7 +13,7 @@ public class Drive {
 
     double drive, turn, strafe, frontLeftPower, frontRightPower, rearLeftPower, rearRightPower;
 
-    double power = 0.5;
+    double power = 1;
 
     public Drive(DcMotor frontLeft, DcMotor frontRight, DcMotor rearLeft, DcMotor rearRight) {
         this.frontLeft = frontLeft;
@@ -38,10 +38,10 @@ public class Drive {
         turn = gamepad1.right_stick_x;
         strafe = gamepad1.left_stick_x * -1.1; // TODO: This coefficient will likely need to be tuned to fix imperfect strafing.
 
-        frontLeftPower = Range.clip(drive + turn + strafe, -0.8, 0.8);
-        rearLeftPower = Range.clip(drive + turn - strafe, -0.8, 0.8);
-        frontRightPower = Range.clip(drive - turn - strafe, -0.8, 0.8);
-        rearRightPower = Range.clip(drive - turn + strafe, -0.8, 0.8);
+        frontLeftPower = Range.clip(drive + turn + strafe, -1, 1);
+        rearLeftPower = Range.clip(drive + turn - strafe, -1, 1);
+        frontRightPower = Range.clip(drive - turn - strafe, -1, 1);
+        rearRightPower = Range.clip(drive - turn + strafe, -1, 1);
 
         frontLeft.setPower(frontLeftPower);
         rearLeft.setPower(rearLeftPower);
@@ -55,10 +55,10 @@ public class Drive {
         turn = gamepad2.right_stick_x;
         strafe = gamepad2.left_stick_x * -1.1; // TODO: This coefficient will likely need to be tuned to fix imperfect strafing.
 
-        frontLeftPower = Range.clip(drive + turn + strafe, -0.4, 0.4);
-        rearLeftPower = Range.clip(drive + turn - strafe, -0.4, 0.4);
-        frontRightPower = Range.clip(drive - turn - strafe, -0.4, 0.4);
-        rearRightPower = Range.clip(drive - turn + strafe, -0.4, 0.4);
+        frontLeftPower = Range.clip(drive + turn + strafe, -0.5, 0.5);
+        rearLeftPower = Range.clip(drive + turn - strafe, -0.5, 0.5);
+        frontRightPower = Range.clip(drive - turn - strafe, -0.5, 0.5);
+        rearRightPower = Range.clip(drive - turn + strafe, -0.5, 0.5);
 
         frontLeft.setPower(frontLeftPower);
         rearLeft.setPower(rearLeftPower);
