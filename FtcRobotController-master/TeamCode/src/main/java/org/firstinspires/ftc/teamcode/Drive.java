@@ -13,7 +13,7 @@ public class Drive {
 
     double drive, turn, strafe, frontLeftPower, frontRightPower, rearLeftPower, rearRightPower;
 
-    double power = 0.5;
+    double power = 1;
 
     public Drive(DcMotor frontLeft, DcMotor frontRight, DcMotor rearLeft, DcMotor rearRight) {
         this.frontLeft = frontLeft;
